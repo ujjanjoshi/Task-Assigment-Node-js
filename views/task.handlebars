@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Task Assignment</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="/task/viewtask">Task</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Completed</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Deleted</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                {{usernames}}
+                <a class="btn btn-outline-info" href="#" role="button">Logout</a>
+            </span>
+        </div>
+    </div>
+</nav>
+<div class="card" style="margin:10px">
+  <div class="card-header">
+    List
+  </div>
+  <div class="card-body">
+   <ol class="list-group list-group-numbered">
+ 
+           {{#each task}}
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto" >
+      <div class="fw-bold">{{this.Name}}</div>
+      <b>Description:</b> {{this.Description}}<br/>
+      <b>Deadline:</b> {{this.Deadline}}<br/>
+       <b>Involved User:</b> {{this.InvolvedUser}}
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a class="btn btn-primary me-md-2" href="#" role="button">Edit</a>
+   <a class="btn btn-danger me-md-2" href="/task/deletetask/{{this.id}}" role="button">Delete</a>
+
+   <a class="btn btn-success" href="#" role="button">Complete</a>
+</div>
+   
+    </li>
+     {{/each}}
+    
+</ol>
+  </div>
+</div>
